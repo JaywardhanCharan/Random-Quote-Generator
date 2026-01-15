@@ -30,11 +30,11 @@ const App = () => {
     <div className="app">
       <div className="card">
         {error ? (
-          <h1 className="heading error">{error}</h1>
+          <h2 className="heading error">{error}</h2>
         ) : (
-          <h1 className="heading">
+          <h2 className="heading">
             {loading ? "Loading advice..." : advice}
-          </h1>
+          </h2>
         )}
 
         <button
@@ -42,7 +42,7 @@ const App = () => {
           onClick={fetchAdvice}
           disabled={loading}
         >
-          <span>{loading ? "FETCHING..." : "GIVE ME ADVICE!"}</span>
+          <span>{loading ? "Migrating..." : "Give me some new quotes!"}</span>
         </button>
       </div>
     </div>
