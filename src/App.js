@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRender } from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -6,6 +6,8 @@ const App = () => {
   const [advice, setAdvice] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [failed, setFailed] = useState("");
+  const [finalResponse, setFinalResponse] = useState("");
 
   const fetchAdvice = async () => {
     try {
@@ -35,6 +37,9 @@ const App = () => {
           <h2 className="heading">
             {loading ? "Loading advice..." : advice}
           </h2>
+          <h1 className="bigHeading">
+            {loading ? "Failed cases loading..." : failed}
+          </h1>
         )}
 
         <button
@@ -42,7 +47,8 @@ const App = () => {
           onClick={fetchAdvice}
           disabled={loading}
         >
-          <span>{loading ? "Migrating..." : "Give me some new quotes!"}</span>
+          <span>{loading ? "Migrating..." : "Get me some content which is in quotes?"}</span>
+          <div>{finalResponse ? "Fetching..." : "Final response if fetched and here is the result!"}</span>
         </button>
       </div>
     </div>
